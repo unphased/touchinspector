@@ -52,6 +52,7 @@ var ply_$ = null;
         load("https://raw.github.com/unphased/ply/master/debug.js",function(){
             load('https://raw.github.com/unphased/ply/master/ply.js',function(){
                 load('https://raw.github.com/unphased/ply/master/ply_L2.js');
+                load('https://raw.github.com/unphased/ply/master/ply_L3.js');
                 /*global PLY:false DEBUG:false*/
 
                 // defines some UI to allow selection of features via my debug lib
