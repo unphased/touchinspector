@@ -5,7 +5,7 @@ var ply_$ = null;
     // Usage: if no cb provided, it will set the load as async
     function load(url,cb){var x=document.body.appendChild(document.createElement('script'));x.src=url;x.onload=function(){console.log("Dynamically loaded "+url);if(cb){cb();}};if(!cb){x.setAttribute('async','')}}
 
-    load("https://raw.github.com/unphased/ply/master/util.js", function(){
+    load("https://raw.github.com/unphased/ply/master/towel.js", function(){
         var jQ = window.jQuery;
         // only if jQuery already exists on the page we're injecting to should noConflict be invoked. 
         UTIL.async_load([
@@ -143,5 +143,5 @@ var ply_$ = null;
                 }); // PLY.attach_handlers_on_document
             }); // load(ply.js)
         }); // UTIL.async_load
-    }); // load util
+    }); // load utils
 })(); // function wrapper
