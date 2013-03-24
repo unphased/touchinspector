@@ -12,7 +12,7 @@ var ply_$ = null;
         // only if jQuery already exists on the page we're injecting to should noConflict be invoked. 
         UTIL.async_load([
             // loads independent jquery if existing version != 2.x (this code good till jQuery 3)
-            !jQ || (jQ && jQ().jquery.indexOf('2') === 0) ? {
+            !jQ || (jQ && jQ().jquery.indexOf('2') !== 0) ? {
                 url: "https://raw.github.com/unphased/ply/master/jquery-2.0.0b2.js",
                 tag: "script",
                 cb: jQ && function(){ 
