@@ -14,7 +14,7 @@ var ply_$ = null;
             (!jQ || jQuery().jquery.indexOf('2') === 1) && {
                     url: "https://raw.github.com/unphased/ply/master/jquery-2.0.0b2.js",
                     tag: "script",                     
-                    cb: jQ && function(){ ply_$ = $.noConflict(true) }
+                    cb: jQ && function(){ console.log("creating ply_$ because jquery "+jQ+" already found"); window.ply_$ = $.noConflict(true) }
                 },
             {url: "https://raw.github.com/unphased/ply/master/modernizr-2.6.2.min.js", tag: "script"}
         ], function() {
