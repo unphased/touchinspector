@@ -1,5 +1,6 @@
 var ply_$ = null;
 (function(){
+    /*global UTIL:false */
     "use strict";
     // pure JS serial script loading
     // Usage: if is a single file and no cb provided, it will set the load as async    
@@ -8,7 +9,7 @@ var ply_$ = null;
     loadjs("https://raw.github.com/unphased/ply/master/towel.js", function(){
         var jQ = window.jQuery;
         // only if jQuery already exists on the page we're injecting to should noConflict be invoked. 
-        TOWEL.async_load([
+        UTIL.async_load([
             // loads independent jquery if existing version != 2.x (this code good till jQuery 3)
             (!jQ || jQuery().jquery.indexOf('2') === 1) && {
                     url: "https://raw.github.com/unphased/ply/master/jquery-2.0.0b2.js",
