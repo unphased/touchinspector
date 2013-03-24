@@ -2,10 +2,10 @@ var ply_$ = null;
 (function(){
     "use strict";
     // pure JS serial script loading
-    // Usage: if no cb provided, it will set the load as async
-    function load(url,cb){var x=document.body.appendChild(document.createElement('script'));x.src=url;x.onload=function(){console.log("Dynamically loaded "+url);if(cb){cb();}};if(!cb){x.setAttribute('async','')}}
+    // Usage: if is a single file and no cb provided, it will set the load as async    
+    function loadjs(url,cb){var x=document.body.appendChild(document.createElement('script'));x.src=url;x.onload=function(){console.log("Dynamically loaded "+url);if(cb){cb();}};if(!cb){x.setAttribute('async','')}}
 
-    load("https://raw.github.com/unphased/ply/master/towel.js", function(){
+    loadjs("https://raw.github.com/unphased/ply/master/towel.js", function(){
         var jQ = window.jQuery;
         // only if jQuery already exists on the page we're injecting to should noConflict be invoked. 
         TOWEL.async_load([
@@ -18,12 +18,12 @@ var ply_$ = null;
             {url: "https://raw.github.com/unphased/ply/master/modernizr-2.6.2.min.js", tag: "script"},
             {url: "https://raw.github.com/unphased/ply/master/debug.js", tag: "script"}
         ], function() {
-            load('https://raw.github.com/unphased/ply/master/ply.js',function(){
+            loadjs('https://raw.github.com/unphased/ply/master/ply.js',function(){
                 // as the finishing scripts, these do not need to use async_load as we 
                 // are not concerned about when they are all done loading
-                load('https://raw.github.com/unphased/ply/master/ply_L2.js');
-                load('https://raw.github.com/unphased/ply/master/ply_L3.js');
-                load('https://raw.github.com/unphased/ply/master/ply_L4.js');
+                loadjs('https://raw.github.com/unphased/ply/master/ply_L2.js');
+                loadjs('https://raw.github.com/unphased/ply/master/ply_L3.js');
+                loadjs('https://raw.github.com/unphased/ply/master/ply_L4.js');
                 /*global PLY:false DEBUG:false*/
 
                 // defines some UI to allow selection of features via my debug lib
