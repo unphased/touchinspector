@@ -6,13 +6,14 @@ var ply_$ = null;
     function load(url,cb){var x=document.body.appendChild(document.createElement('script'));x.src=url;x.onload=function(){console.log("Dynamically loaded "+url);if(cb){cb();}};if(!cb){x.setAttribute('async','')}}
 
     load("https://raw.github.com/unphased/ply/master/util.js", function(){
+        var jQ = window.jQuery;
         // only if jQuery already exists on the page we're injecting to should noConflict be invoked. 
         UTIL.async_load([
             // loads independent jquery if existing version != 2.x (this code good till jQuery 3)
-            (!window.jQuery || jQuery().jquery.indexOf('2') === 1) && {
+            (!jQ || jQuery().jquery.indexOf('2') === 1) && {
                     url: "https://raw.github.com/unphased/ply/master/jquery-2.0.0b2.js",
                     tag: "script",                     
-                    cb: window.jQuery && function(){ ply_$ = $.noConflict(true) }
+                    cb: jQ && function(){ ply_$ = $.noConflict(true) }
                 },
             {url: "https://raw.github.com/unphased/ply/master/modernizr-2.6.2.min.js", tag: "script"},
             {url: "https://raw.github.com/unphased/ply/master/debug.js", tag: "script"}
