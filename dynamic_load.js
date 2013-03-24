@@ -16,10 +16,9 @@ var ply_$ = null;
                     tag: "script",                     
                     cb: jQ && function(){ ply_$ = $.noConflict(true) }
                 },
-            {url: "https://raw.github.com/unphased/ply/master/modernizr-2.6.2.min.js", tag: "script"},
-            {url: "https://raw.github.com/unphased/ply/master/debug.js", tag: "script"}
+            {url: "https://raw.github.com/unphased/ply/master/modernizr-2.6.2.min.js", tag: "script"}
         ], function() {
-            loadjs('https://raw.github.com/unphased/ply/master/ply.js',function(){
+            UTIL.js_load(['https://raw.github.com/unphased/ply/master/debug.js','https://raw.github.com/unphased/ply/master/ply.js'],function(){
                 // as the finishing scripts, these do not need to use async_load as we 
                 // are not concerned about when they are all done loading
                 loadjs('https://raw.github.com/unphased/ply/master/ply_L2.js');
