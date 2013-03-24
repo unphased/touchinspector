@@ -1,7 +1,8 @@
 var ply_$ = null;
 (function(){
     /*global UTIL:false */
-    "use strict";
+    // "use strict"; // temporarily comment out to let safari's debugger through
+
     // pure JS serial script loading
     // Usage: if is a single file and no cb provided, it will set the load as async    
     function loadjs(url,cb){var x=document.body.appendChild(document.createElement('script'));x.src=url;x.onload=function(){console.log("Dynamically loaded "+url);if(cb){cb();}};if(!cb){x.setAttribute('async','')}}
