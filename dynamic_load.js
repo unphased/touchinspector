@@ -11,14 +11,14 @@ var ply_$ = null;
         // only if jQuery already exists on the page we're injecting to should noConflict be invoked. 
         UTIL.async_load([
             // loads independent jquery if existing version != 2.x (this code good till jQuery 3)
-            (!jQ || jQuery().jquery.indexOf('2') === 1) && {
-                    url: "https://raw.github.com/unphased/ply/master/jquery-2.0.0b2.js",
-                    tag: "script",                     
-                    cb: jQ && function(){ 
-                        console.log("creating ply_$ because jquery "+jQ.jquery+" already found"); 
-                        window.ply_$ = $.noConflict(true);
-                    }
-                },
+            !jQ || (jQ && jQ().jquery.indexOf('2') === 0) ? {
+                url: "https://raw.github.com/unphased/ply/master/jquery-2.0.0b2.js",
+                tag: "script",
+                cb: jQ && function(){ 
+                    console.log("creating ply_$ because jquery "+jQ.jquery+" already found"); 
+                    window.ply_$ = $.noConflict(true);
+                }
+            } : null,
             {url: "https://raw.github.com/unphased/ply/master/modernizr-2.6.2.min.js", tag: "script"}
         ], function() {
             UTIL.js_load(['https://raw.github.com/unphased/ply/master/debug.js','https://raw.github.com/unphased/ply/master/ply.js'],function(){
